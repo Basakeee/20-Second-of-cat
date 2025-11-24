@@ -30,7 +30,7 @@ namespace Gameplay
         {
             foreach (GameObject overlapObject in overlapObjects)
             {
-                if (overlapObject.TryGetComponent(out Box box))
+                if (overlapObject.TryGetComponent(out Box box) || overlapObject.CompareTag("Player"))
                 {
                     return true;
                 }

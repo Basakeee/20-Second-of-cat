@@ -77,8 +77,8 @@ namespace Player
             //If Aiming Shoot it and exit Aim State
             if (isAiming)
             {
-                Debug.Log("AimDirection: " + aimDirection + ", Magnitute: " + aimDirection.magnitude);
-                Debug.Log("Distance: " + Vector3.Distance(transform.position, aimDirection));
+                /*Debug.Log("AimDirection: " + aimDirection + ", Magnitute: " + aimDirection.magnitude);
+                Debug.Log("Distance: " + Vector3.Distance(transform.position, aimDirection));*/
                 isAiming = false;
                 lineRenderer.enabled = false;
                 Shoot();
