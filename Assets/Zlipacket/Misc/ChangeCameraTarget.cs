@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Zlipacket.Misc
 {
-    public class ExtraCinemachine : MonoBehaviour
+    public class ChangeCameraTarget : MonoBehaviour
     {
         private CinemachineCamera cinemachineCam;
 

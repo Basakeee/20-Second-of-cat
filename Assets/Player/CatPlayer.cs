@@ -11,7 +11,7 @@ namespace Player
         private LineRenderer lineRenderer;
         
         public bool isAiming {get; private set;}
-        public bool isIdle { get; private set; } = true;
+        public bool isIdle {get; private set;} = true;
         public Vector3 aimDirection {get; private set;}
 
         public float shootThreshold = 1f;
@@ -50,16 +50,16 @@ namespace Player
             aimDirection = -aimDirection;
             
             Debug.DrawRay(transform.position, aimDirection, Color.yellow);
-            //DrawLine(aimDirection);
+            DrawLine(aimDirection + transform.position);
         }
         
-        /*private void DrawLine(Vector3 worldPoint) {
+        private void DrawLine(Vector3 worldPoint) {
             Vector3[] positions = {
                 transform.position,
                 worldPoint};
             lineRenderer.SetPositions(positions);
             lineRenderer.enabled = true;
-        }*/
+        }
 
         private void OnMouseDown()
         {
