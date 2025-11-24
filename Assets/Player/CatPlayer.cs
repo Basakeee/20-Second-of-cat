@@ -8,6 +8,7 @@ namespace Player
     {
         private Rigidbody rb;
         private CatInputController inputController;
+        private LineRenderer lineRenderer;
         
         public bool isAiming {get; private set;}
         public bool isIdle { get; private set; } = true;
@@ -15,17 +16,23 @@ namespace Player
 
         public float shootThreshold = 1f;
         public float maxDrawLength = 1000f;
-        
-        private void Start()
+        public float maxStrength = 50f;
+
+        private void Awake()
         {
             rb = GetComponent<Rigidbody>();
             inputController = GetComponent<CatInputController>();
-            
-            inputController.onMouseLeftDown.AddListener(OnMouseDown);
-            inputController.onMouseLeftUp.AddListener(OnMouseUp);
+            lineRenderer = GetComponent<LineRenderer>();
         }
 
-        public void Update()
+        private void Start()
+        {
+            inputController.onMouseLeftDown.AddListener(OnMouseDown);
+            inputController.onMouseLeftUp.AddListener(OnMouseUp);
+            lineRenderer.enabled = false;
+        }
+
+        public void FixedUpdate()
         {
             if (isAiming)
             {
@@ -35,20 +42,24 @@ namespace Player
 
         private void ProcessAim()
         {
-            var mousePosition = Camera.main.ScreenToWorldPoint(
-                new Vector3(inputController.MousePosition.x, inputController.MousePosition.y, Camera.main.farClipPlane));
-            var horizontalWorldPoint = new Vector3(mousePosition.x, transform.position.y, mousePosition.z);
+            if (!CastMouseCickRaycast(out RaycastHit hit)) return;
             
+            Vector3 horizontalWorldPoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             aimDirection = horizontalWorldPoint - transform.position;
             aimDirection = Vector3.ClampMagnitude(aimDirection, maxDrawLength);
+            aimDirection = -aimDirection;
             
             Debug.DrawRay(transform.position, aimDirection, Color.yellow);
-            Debug.DrawRay(transform.position, horizontalWorldPoint, Color.blue);
-            
-            /*var rawDirection = Camera.main.ScreenToWorldPoint(inputController.MousePosition) - transform.position;
-            aimDirection = new  Vector3(rawDirection.x, 0f, rawDirection.z);
-            Vector3.ClampMagnitude(aimDirection, maxDrawLength);*/
+            //DrawLine(aimDirection);
         }
+        
+        /*private void DrawLine(Vector3 worldPoint) {
+            Vector3[] positions = {
+                transform.position,
+                worldPoint};
+            lineRenderer.SetPositions(positions);
+            lineRenderer.enabled = true;
+        }*/
 
         private void OnMouseDown()
         {
@@ -67,7 +78,9 @@ namespace Player
             if (isAiming)
             {
                 Debug.Log("AimDirection: " + aimDirection + ", Magnitute: " + aimDirection.magnitude);
+                Debug.Log("Distance: " + Vector3.Distance(transform.position, aimDirection));
                 isAiming = false;
+                lineRenderer.enabled = false;
                 Shoot();
                 aimDirection = Vector3.zero;
             }
@@ -77,7 +90,7 @@ namespace Player
         {
             if (aimDirection == Vector3.zero || aimDirection.magnitude <= shootThreshold) return;
             
-            rb.AddForce(aimDirection, ForceMode.Impulse);
+            rb.AddForce(aimDirection.normalized * (aimDirection.magnitude / maxDrawLength * maxStrength), ForceMode.Impulse);
         }
         
         private bool CastMouseCickRaycast(out RaycastHit raycastHit)
@@ -106,5 +119,100 @@ namespace Player
             
             return false;
         }
+        
+        /*[SerializeField] private float shotPower;
+        [SerializeField] private float stopVelocity = .05f; //The velocity below which the rigidbody will be considered as stopped
+
+        [SerializeField] private LineRenderer lineRenderer;
+
+        private bool isIdle;
+        private bool isAiming;
+
+        private Rigidbody rigidbody;
+
+        private void Awake() {
+            rigidbody = GetComponent<Rigidbody>();
+
+            isAiming = false;
+            lineRenderer.enabled = false;
+        }
+
+        private void FixedUpdate() {
+            if(rigidbody.velocity.magnitude < stopVelocity) {
+                Stop();
+            }
+
+            ProcessAim();
+        }
+
+        private void OnMouseDown() {
+            if (isIdle) {
+                isAiming = true;
+            }
+        }
+
+        private void ProcessAim() {
+            if(!isAiming || !isIdle) {
+                return;
+            }
+
+            Vector3? worldPoint = CastMouseClickRay();
+
+            if (!worldPoint.HasValue) {
+                return;
+            }
+
+            DrawLine(worldPoint.Value);
+
+            if (Input.GetMouseButtonUp(0)) {
+                Shoot(worldPoint.Value);
+            }
+        }
+
+        private void Shoot(Vector3 worldPoint) {
+            isAiming = false;
+            lineRenderer.enabled = false;
+
+            Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
+
+            Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
+            float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
+
+            rigidbody.AddForce(direction * strength * shotPower);
+            isIdle = false;
+        }
+
+        private void DrawLine(Vector3 worldPoint) {
+            Vector3[] positions = {
+                transform.position,
+                worldPoint};
+            lineRenderer.SetPositions(positions);
+            lineRenderer.enabled = true;
+        }
+
+        private void Stop() {
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+            isIdle = true;
+        }
+
+        private Vector3? CastMouseClickRay() {
+            Vector3 screenMousePosFar = new Vector3(
+                Input.mousePosition.x,
+                Input.mousePosition.y,
+                Camera.main.farClipPlane);
+            Vector3 screenMousePosNear = new Vector3(
+                Input.mousePosition.x,
+                Input.mousePosition.y,
+                Camera.main.nearClipPlane);
+            Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMousePosFar);
+            Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMousePosNear);
+            RaycastHit hit;
+            if (Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, float.PositiveInfinity)) {
+                return hit.point;
+            } else {
+                return null;
+            }
+        }*/
     }
 }
