@@ -3,12 +3,13 @@ using UnityEngine.Events;
 
 namespace Zlipacket.Tools
 {
-    public class Timer : MonoBehaviour
+    public class ObjectTimer : MonoBehaviour
     {
         [SerializeField] private float duration;
-        public float percentage {get; private set;} = 0f;
+        
         private float timeElapsed = 0f;
-        private bool isRunning = false;
+        public float percentage { get; private set; } = 0f;
+        public bool isRunning {get; private set;} = false;
         
         [Header("Events")]
         public UnityEvent onTimerStart;
