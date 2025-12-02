@@ -50,5 +50,14 @@ namespace Zlipacket.Managers
             }
             musicPlaylist.Clear();
         }
+
+        public bool CheckIsSongPlaying(string callbackName)
+        {
+            if (musicPlaylist.TryGetValue(callbackName, out AudioSource music))
+            {
+                return music.isPlaying;
+            }
+            return false;
+        }
     }
 }

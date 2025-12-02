@@ -6,8 +6,8 @@ namespace Zlipacket.Tools
     public class ObjectTimer : MonoBehaviour
     {
         [SerializeField] private float duration;
-        
-        private float timeElapsed = 0f;
+
+        public float timeElapsed { get; private set; } = 0f;
         public float percentage { get; private set; } = 0f;
         public bool isRunning {get; private set;} = false;
         
@@ -52,6 +52,7 @@ namespace Zlipacket.Tools
 
             if (timeElapsed >= duration)
             {
+                timeElapsed = duration;
                 TimerFinished();
                 isRunning = false;
             }

@@ -8,6 +8,9 @@ namespace Player
         public CatInputController inputController {get; private set;}
         private Cat currentCat;
         
+        [SerializeField] public Texture2D curserSprite;
+        [SerializeField] public Texture2D hoverSprite;
+        
         public override void Awake()
         {
             base.Awake();
@@ -22,6 +25,10 @@ namespace Player
         
         private void OnMouseDown()
         {
+            if (hoverSprite == null) return;
+            Vector2 cursorHotSpot = new Vector2(hoverSprite.width / 2, hoverSprite.height / 2);
+            Cursor.SetCursor(hoverSprite, cursorHotSpot, CursorMode.Auto);
+            
             if (!ZlipUtilities.CastMouseCickRaycast(inputController, out RaycastHit hit)) return;
             
             //Enter Aim State
@@ -37,6 +44,10 @@ namespace Player
 
         private void OnMouseUp()
         {
+            if (curserSprite == null) return;
+            Vector2 cursorHotSpot = new Vector2(curserSprite.width / 2, curserSprite.height / 2);
+            Cursor.SetCursor(curserSprite, cursorHotSpot, CursorMode.Auto);
+            
             //If Aiming Shoot it and exit Aim State
             if (currentCat != null)
             {

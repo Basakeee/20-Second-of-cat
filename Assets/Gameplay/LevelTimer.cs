@@ -1,6 +1,9 @@
 ﻿using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Zlipacket.Scene;
 using Zlipacket.Tools;
 
 namespace Gameplay
@@ -8,7 +11,8 @@ namespace Gameplay
     public class LevelTimer : MonoBehaviour
     {
         [SerializeField] private ObjectTimer timerObject;
-        [SerializeField] private Slider timerSlider;
+        //[SerializeField] private Slider timerSlider;
+        [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private float duration = 20f;
 
         private void Start()
@@ -22,13 +26,13 @@ namespace Gameplay
         {
             if (timerObject.isRunning)
             {
-                timerSlider.value = 1 - timerObject.percentage;
+                timerText.SetText(Mathf.FloorToInt(duration - timerObject.timeElapsed).ToString());
             }
         }
 
         public void TimeOut()
         {
-            
+            SceneController.Instance.LoadScene("GameOverScene");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Zlipacket.Tools;
 
@@ -19,7 +20,7 @@ namespace Player
         public float maxDrawLength = 1000f;
         public float maxStrength = 50f;
         public float rotationSpeed = 720;
-
+        
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();

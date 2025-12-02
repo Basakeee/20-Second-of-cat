@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using Zlipacket.Scene;
@@ -8,7 +9,7 @@ namespace Gameplay
     public class EventBox : MonoBehaviour
     {
         public UnityEvent onPlayerOverlapped;
-        
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -17,10 +18,16 @@ namespace Gameplay
             }
         }
 
-        public void ChangeLevel(string levelName)
+        public void NextIntermission(string intermissionLevel)
         {
-            SceneController.Instance.LoadScene(levelName);
-            
+            if (string.IsNullOrEmpty(intermissionLevel))
+                intermissionLevel = "IntermissionScene";
+            SceneController.Instance.LoadScene(intermissionLevel);
+        }
+
+        public void NextLevel()
+        {
+            CatGameManager.Instance.NextLevel();
         }
     }
 }
