@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Zlipacket.Managers;
 using Zlipacket.Tools;
 
 namespace Player
@@ -20,6 +21,8 @@ namespace Player
         public float maxDrawLength = 1000f;
         public float maxStrength = 50f;
         public float rotationSpeed = 720;
+
+        [SerializeField] private AudioClip shootSfx;
         
         private void Awake()
         {
@@ -92,6 +95,7 @@ namespace Player
         {
             if (aimDirection == Vector3.zero || aimDirection.magnitude <= shootThreshold) return;
             
+            SoundFXManager.Instance.PlaySoundFX(shootSfx, transform);
             rb.AddForce(aimDirection.normalized * (aimDirection.magnitude / maxDrawLength * maxStrength), ForceMode.Impulse);
         }
     }

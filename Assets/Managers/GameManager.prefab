@@ -387,4 +387,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  maxLevel: 1
+  maxLevel: 3
