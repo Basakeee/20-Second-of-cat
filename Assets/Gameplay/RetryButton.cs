@@ -1,6 +1,7 @@
 ﻿using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zlipacket.Scene;
 
 namespace Gameplay
 {
@@ -8,7 +9,7 @@ namespace Gameplay
     {
         public void Retry()
         {
-            SceneManager.LoadScene("Level" + CatGameManager.Instance.currentLevel);
+            SceneController.Instance.LoadScene("Level" + CatGameManager.Instance.currentLevel);
         }
     }
 }

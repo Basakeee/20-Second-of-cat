@@ -326,6 +326,7 @@ MonoBehaviour:
   maxDrawLength: 3.5
   maxStrength: 150
   rotationSpeed: 1080
+  shootSfx: {fileID: 0}
 --- !u!138 &29141624
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -707,6 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curserSprite: {fileID: 2800000, guid: c49feb689f46eda4bb8c611f2de044e2, type: 3}
   hoverSprite: {fileID: 2800000, guid: aab5855347132eb48892372762c9a802, type: 3}
+  clickSound: {fileID: 8300000, guid: 6ff6892f14909ee4e97070478132f1d6, type: 3}
 --- !u!114 &435838971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,6 +1273,51 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.01, y: 17, z: -2.5200007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &606581443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606581445}
+  - component: {fileID: 606581444}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &606581444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606581443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992b10f4d0dd4cd3811b3e9315c85c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelMusic: {fileID: 0}
+--- !u!4 &606581445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606581443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3320,3 +3367,4 @@ SceneRoots:
   - {fileID: 1374172047}
   - {fileID: 1482872314}
   - {fileID: 1283063032}
+  - {fileID: 606581445}

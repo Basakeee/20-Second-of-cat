@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Zlipacket.Managers;
 using Zlipacket.Scene;
 
 namespace Zlipacket.Misc
@@ -9,6 +11,15 @@ namespace Zlipacket.Misc
     {
         [SerializeField] public Texture2D curserSprite;
         [SerializeField] public Texture2D hoverSprite;
+        [SerializeField] public AudioClip clickSound;
+
+        public void PlayClickSound()
+        {
+            if (clickSound != null)
+            {
+                SoundFXManager.Instance.PlaySoundFX(clickSound, transform);
+            }
+        }
         
         public void ChangeToScene(string sceneName)
         {

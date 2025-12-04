@@ -326,6 +326,7 @@ MonoBehaviour:
   maxDrawLength: 3.5
   maxStrength: 150
   rotationSpeed: 1080
+  shootSfx: {fileID: 0}
 --- !u!138 &29141624
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -706,6 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curserSprite: {fileID: 2800000, guid: c49feb689f46eda4bb8c611f2de044e2, type: 3}
   hoverSprite: {fileID: 2800000, guid: aab5855347132eb48892372762c9a802, type: 3}
+  clickSound: {fileID: 8300000, guid: 6ff6892f14909ee4e97070478132f1d6, type: 3}
 --- !u!114 &435838971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,6 +2195,51 @@ MonoBehaviour:
   onPlayerOverlapped:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1320165779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320165781}
+  - component: {fileID: 1320165780}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1320165780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320165779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992b10f4d0dd4cd3811b3e9315c85c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelMusic: {fileID: 8300000, guid: 4971f707ff9f03041a6d797b89e93ce1, type: 3}
+--- !u!4 &1320165781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320165779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322471403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,7 +2488,7 @@ GameObject:
   - component: {fileID: 1482872311}
   - component: {fileID: 1482872310}
   m_Layer: 0
-  m_Name: OptionButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3409,3 +3456,4 @@ SceneRoots:
   - {fileID: 1374172047}
   - {fileID: 1482872314}
   - {fileID: 1283063032}
+  - {fileID: 1320165781}
