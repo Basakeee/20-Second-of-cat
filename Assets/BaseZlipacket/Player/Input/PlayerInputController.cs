@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Zlipacket.Player.Input
+namespace BaseZlipacket.Player.Input
 {
     public class PlayerInputController : MonoBehaviour
     {

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using BaseZlipacket.Tools;
+using UnityEngine;
 using UnityEngine.Audio;
-using Zlipacket.Tools;
 
-namespace Zlipacket.Managers
+namespace BaseZlipacket.Managers
 {
     public class MixerManager : Singleton<MixerManager>
     {

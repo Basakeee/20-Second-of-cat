@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Zlipacket.Tools
+namespace BaseZlipacket.Tools
 {
     [System.Serializable]
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
+using BaseZlipacket.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Zlipacket.Tools;
 
-namespace Zlipacket.Scene
+namespace BaseZlipacket.Scene
 {
     public class SceneController : Singleton<SceneController>
     {

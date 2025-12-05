@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using BaseZlipacket.Scene;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
-using Zlipacket.Scene;
 
-namespace Zlipacket.Misc
+namespace BaseZlipacket.UI
 {
     public class VideoController : MonoBehaviour
     {

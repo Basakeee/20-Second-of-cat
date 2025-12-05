@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using Zlipacket.Player.Input;
+﻿using BaseZlipacket.Player.Input;
+using UnityEngine;
 
-namespace Zlipacket.Tools
+namespace BaseZlipacket.Tools
 {
     public static class ZlipUtilities
     {

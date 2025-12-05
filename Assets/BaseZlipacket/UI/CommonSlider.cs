@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Zlipacket.Misc
+namespace BaseZlipacket.UI
 {
     public class CommonSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

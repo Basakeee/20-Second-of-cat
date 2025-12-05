@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using Zlipacket.Managers;
-using Zlipacket.Scene;
-using Zlipacket.Tools;
+﻿using BaseZlipacket.Scene;
+using BaseZlipacket.Tools;
+using UnityEngine;
 
 namespace Managers
 {

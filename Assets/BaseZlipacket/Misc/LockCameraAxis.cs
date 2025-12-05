@@ -1,7 +1,7 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Zlipacket.Misc
+namespace BaseZlipacket.Misc
 {
     /// <summary>
     /// An add-on module for Cinemachine Virtual Camera that locks the camera's Z co-ordinate

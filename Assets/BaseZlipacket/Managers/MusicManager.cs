@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using BaseZlipacket.Tools;
 using UnityEngine;
-using Zlipacket.Tools;
 
-namespace Zlipacket.Managers
+namespace BaseZlipacket.Managers
 {
     public class MusicManager : Singleton<MusicManager>
     {

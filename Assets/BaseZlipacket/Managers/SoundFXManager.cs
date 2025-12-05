@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using Zlipacket.Tools;
+﻿using BaseZlipacket.Tools;
+using UnityEngine;
 
-namespace Zlipacket.Managers
+namespace BaseZlipacket.Managers
 {
     public class SoundFXManager : Singleton<SoundFXManager>
     {

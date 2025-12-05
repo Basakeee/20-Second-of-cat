@@ -1,7 +1,7 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Zlipacket.Misc
+namespace BaseZlipacket.Misc
 {
     public class ChangeCameraTarget : MonoBehaviour
     {

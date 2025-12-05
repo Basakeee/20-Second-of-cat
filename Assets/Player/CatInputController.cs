@@ -1,4 +1,4 @@
-﻿using Zlipacket.Player.Input;
+﻿using BaseZlipacket.Player.Input;
 
 namespace Player
 {

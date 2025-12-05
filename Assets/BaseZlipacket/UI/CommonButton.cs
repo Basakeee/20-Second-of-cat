@@ -1,11 +1,9 @@
-﻿using System;
+﻿using BaseZlipacket.Managers;
+using BaseZlipacket.Scene;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using Zlipacket.Managers;
-using Zlipacket.Scene;
 
-namespace Zlipacket.Misc
+namespace BaseZlipacket.UI
 {
     public class CommonButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

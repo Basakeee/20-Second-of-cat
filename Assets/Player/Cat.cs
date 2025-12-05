@@ -1,10 +1,10 @@
 ﻿using System;
+using BaseZlipacket.Managers;
+using BaseZlipacket.Tools;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using Zlipacket.Managers;
-using Zlipacket.Tools;
 
 namespace Player
 {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Zlipacket.Tools
+namespace BaseZlipacket.Tools
 {
     public abstract class Singleton<T> : MonoBehaviour where T : Component
     {
