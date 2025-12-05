@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: c324d31e9d87f88419d0be7071b80ff7
+guid: 007df13a9cba8b942bd06ac3da443e41
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlantPot2.004
+    second: {fileID: 2100000, guid: a12a551895dd1f14dbb03a33d09b7b12, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
